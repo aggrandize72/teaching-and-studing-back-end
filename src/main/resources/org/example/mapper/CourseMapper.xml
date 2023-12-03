@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.CourseMapper">
+    <select id="queryAllOpenCourse" resultType="org.example.pojo.Course">
+        select distinct c.c_no, c_name,c_credit from course c, open_table o where c.c_no = o.c_no
+    </select>
+    <select id="getIds" resultType="java.lang.String">
+        select c_no from course
+    </select>
+</mapper>
+

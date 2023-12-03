@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.TeacherMapper">
+
+    <select id="queryAllOpenedTeacher" resultType="org.example.pojo.Teacher">
+        select distinct t.t_no, t_name, t_age from teacher t, open_table o where t.t_no=o.t_no
+    </select>
+    <select id="getIds" resultType="String">
+        select t_no
+        from teacher;
+    </select>
+</mapper>

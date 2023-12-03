@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.OpenMapper">
+    <insert id="add">
+        insert into open_table(t_no, c_no, max_student) values (#{tno},#{cno},#{maxStudent})
+    </insert>
+    <delete id="deleteOpen">
+        delete from open_table where c_no = #{cno} and t_no = #{tno}
+    </delete>
+    <select id="queryByTno" resultType="String">
+        select c_no from open_table where t_no=#{no}
+    </select>
+    <select id="queryAllOpen" resultType="org.example.domain.ShowOpen">
+        select distinct open_id, c_name, t_name, max_student
+        from open_table o, teacher t, course c
+        where t.t_no = o.t_no and c.c_no = o.c_no
+    </select>
+
+</mapper>
